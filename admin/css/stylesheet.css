@@ -1,0 +1,10 @@
+.ptp-admin-body {
+	padding: 24px 0;
+}
+.ptp-admin-body .ptp-admin-wrapper {
+	background-color: #ffffff;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.05);
+	margin: 32px 8px 0 0;
+	max-width: 640px;
+	padding: 64px;
+}
