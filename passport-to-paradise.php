@@ -27,9 +27,23 @@ You should have received a copy of the GNU General Public License
 along with Passport to Paradise. If not, see {License URI}.
 */
 
-require_once('admin/ptp-admin-page.php'); 
+//prevent direct access to wordpress files
+if ( ! defined( 'WPINC' ) ) { die; }
+//take action for activation or deactivation of plugins
+function activate_plugin_name() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
+	Plugin_Name_Activator::activate();
+}
+function deactivate_plugin_name() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
+	Plugin_Name_Deactivator::deactivate();
+}
 
-/* function go below */
+register_activation_hook( __FILE__, 'activate_plugin_name' );
+register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
 
-
-?>
+if (is_admin()){
+    require_once('admin/ptp-admin.php'); 
+    $admin_page_var = new Ptp_Admin();
+    $admin_page_var->add_actions_to_menu();
+}
