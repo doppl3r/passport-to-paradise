@@ -15,6 +15,13 @@ class Ptp_Admin {
 		wp_enqueue_script('passport-to-paradise-scripts');
 	}
 	public function ptp_admin_page_html(){ 
+		global $wpdb;
+		$wpdb->insert('wp_ptp_table', array(
+			'name' => 'Kumkum',
+			'points' => '12543'
+		));
+		//$user_count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->users" );
+		echo "<p>User count is {$user_count}</p>";
 		echo '
 			<div class="ptp-admin-body">
 				<h1>Passport to Paradise</h1>
