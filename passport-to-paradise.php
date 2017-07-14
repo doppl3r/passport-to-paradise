@@ -31,12 +31,12 @@ along with Passport to Paradise. If not, see {License URI}.
 if ( ! defined( 'WPINC' ) ) { die; }
 //take action for activation or deactivation of plugins
 function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
-	Plugin_Name_Activator::activate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/ptp-activator.php';
+	Ptp_Activator::activate();
 }
 function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/ptp-deactivator.php';
+	Ptp_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_plugin_name' );

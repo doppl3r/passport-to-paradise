@@ -1,5 +1,5 @@
 <?php
-class Plugin_Name_Activator {
+class Ptp_Activator {
 	public static function activate() {
 
 	}

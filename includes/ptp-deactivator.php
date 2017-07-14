@@ -1,5 +1,5 @@
 <?php
-class Plugin_Name_Deactivator {
+class Ptp_Deactivator {
 	public static function deactivate() {
 
 	}
