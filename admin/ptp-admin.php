@@ -15,8 +15,8 @@ class Ptp_Admin {
 		wp_enqueue_script('passport-to-paradise-scripts');
 	}
 	public function ptp_render(){ 
-		$this->add_new_user("Jake DeBenedetto",9000);
-		$this->update_user("Jake",9002);
+		$this->add_new_user("Jake",9000);
+		$this->update_user_points("Jake",9005);
 		echo '
 			<div class="ptp-admin-body">
 				<h1>Passport to Paradise</h1>
@@ -40,16 +40,15 @@ class Ptp_Admin {
 			'points' => $points,
 		));
 	}
-	public function update_user($name, $points){
+	public function update_user_points($name, $points){
 		global $wpdb;
-		$wpdb->update('wp_ptp_table',
-		array(
-			'name' => $name,
-			'points' => $points
-		),
-		array( 'name' => $name ));
+		$wpdb->update('wp_ptp_table', //specify table
+		array( 'points' => $points ), //update points
+		array( 'name' => $name )); //where (all matching names)
 	}
-	public function delete_user($user){
-
+	public function delete_user($name){
+		global $wpdb;
+		$wpdb->delete('wp_ptp_table', //specify table
+		array( 'name' => $name )); //where (all matching names)
 	}
 }
