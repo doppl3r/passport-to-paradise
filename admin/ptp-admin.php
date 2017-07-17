@@ -31,10 +31,10 @@ class Ptp_Admin {
 						global $wpdb;
 						$nameColumn = $wpdb->get_results("SELECT name FROM wp_ptp_table");
 						$pointsColumn = $wpdb->get_results("SELECT points FROM wp_ptp_table");
-						foreach ($nameColumn as $nameRow) {
+						foreach ($nameColumn as $key => $nameRow) {
 					echo 	'<div class="row">' . 
 								'<div class="col-sm-6">' . $nameRow->name . '</div>' . 
-								'<div class="col-sm-6">' . $nameRow->name . '</div>' . 
+								'<div class="col-sm-6">' . $pointsColumn[$key]->points . '</div>' . 
 							'</div>';
 						}
 			echo '</div>
