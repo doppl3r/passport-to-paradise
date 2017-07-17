@@ -5,7 +5,7 @@ class Ptp_Admin {
 		add_action( 'admin_head', array( $this, 'ptp_admin_register_scripts' ) ); /* Add custom css sheet to this page */
 	}
 	public function add_admin_menu_page() {
-		add_menu_page('Passport to Paradise', 'Passport', 'manage_options', 'passport-to-paradise', array( $this, 'ptp_admin_page_html' ), 'dashicons-palmtree');
+		add_menu_page('Passport to Paradise', 'Passport', 'manage_options', 'passport-to-paradise', array( $this, 'ptp_render' ), 'dashicons-palmtree');
 	}
 	public function ptp_admin_register_scripts() {
 		wp_register_style('passport-to-paradise-styles', plugin_dir_url(__FILE__) . 'css/stylesheet.css');
@@ -14,21 +14,42 @@ class Ptp_Admin {
 		wp_register_script('passport-to-paradise-scripts', plugin_dir_url(__FILE__) . 'js/scripts.js');
 		wp_enqueue_script('passport-to-paradise-scripts');
 	}
-	public function ptp_admin_page_html(){ 
-		global $wpdb;
-		$wpdb->insert('wp_ptp_table', array(
-			'name' => 'Kumkum',
-			'points' => '12543'
-		));
-		//$user_count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->users" );
-		echo "<p>User count is {$user_count}</p>";
+	public function ptp_render(){ 
+		$this->add_new_user("Jake DeBenedetto",9000);
+		$this->update_user("Jake",9002);
 		echo '
 			<div class="ptp-admin-body">
 				<h1>Passport to Paradise</h1>
 				<div class="ptp-admin-wrapper">
-					<h3>Coming soon</h3>
+					<h3>Names</h3>
+					<ul>';
+						global $wpdb;
+						$nameColumn = $wpdb->get_results("SELECT name FROM wp_ptp_table");
+						foreach ($nameColumn as $nameRow) {
+							echo '<li>' . $nameRow->name . '</li>';
+						}
+					echo '</ul>
 				</div>
 			</div>
 		';
+	}
+	public function add_new_user($name, $points = 0){
+		global $wpdb;
+		$wpdb->insert('wp_ptp_table', array(
+			'name' => $name,
+			'points' => $points,
+		));
+	}
+	public function update_user($name, $points){
+		global $wpdb;
+		$wpdb->update('wp_ptp_table',
+		array(
+			'name' => $name,
+			'points' => $points
+		),
+		array( 'name' => $name ));
+	}
+	public function delete_user($user){
+
 	}
 }
