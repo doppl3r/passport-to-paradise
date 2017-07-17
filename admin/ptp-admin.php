@@ -8,28 +8,36 @@ class Ptp_Admin {
 		add_menu_page('Passport to Paradise', 'Passport', 'manage_options', 'passport-to-paradise', array( $this, 'ptp_render' ), 'dashicons-palmtree');
 	}
 	public function ptp_admin_register_scripts() {
-		wp_register_style('passport-to-paradise-styles', plugin_dir_url(__FILE__) . 'css/stylesheet.css');
-		wp_enqueue_style('passport-to-paradise-styles');
+		wp_register_style('bootstrap.min.css', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css');
+		wp_register_style('ptp.css', plugin_dir_url(__FILE__) . 'css/stylesheet.css');
+		wp_enqueue_style('bootstrap.min.css');
+		wp_enqueue_style('ptp.css');
 
-		wp_register_script('passport-to-paradise-scripts', plugin_dir_url(__FILE__) . 'js/scripts.js');
-		wp_enqueue_script('passport-to-paradise-scripts');
+		wp_register_script('tether.min.js', plugin_dir_url(__FILE__) . 'js/tether.min.js');
+		wp_register_script('bootstrap.min.js', plugin_dir_url(__FILE__) . 'js/bootstrap.min.js');
+		wp_register_script('ptp.js', plugin_dir_url(__FILE__) . 'js/scripts.js');
+		wp_enqueue_script('tether.min.js');
+		wp_enqueue_script('bootstrap.min.js');
+		wp_enqueue_script('ptp.js');
 	}
 	public function ptp_render(){ 
-		$this->add_new_user("Jake",9000);
-		$this->update_user_points("Jake",9005);
+		//$this->add_new_user("Jake",9000);
+		//$this->update_user_points("Jake",9005);
 		echo '
 			<div class="ptp-admin-body">
 				<h1>Passport to Paradise</h1>
 				<div class="ptp-admin-wrapper">
-					<h3>Names</h3>
-					<ul>';
+					<h3>Names</h3>';
 						global $wpdb;
 						$nameColumn = $wpdb->get_results("SELECT name FROM wp_ptp_table");
+						$pointsColumn = $wpdb->get_results("SELECT points FROM wp_ptp_table");
 						foreach ($nameColumn as $nameRow) {
-							echo '<li>' . $nameRow->name . '</li>';
+					echo 	'<div class="row">' . 
+								'<div class="col-sm-6">' . $nameRow->name . '</div>' . 
+								'<div class="col-sm-6">' . $nameRow->name . '</div>' . 
+							'</div>';
 						}
-					echo '</ul>
-				</div>
+			echo '</div>
 			</div>
 		';
 	}
