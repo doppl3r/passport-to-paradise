@@ -19,8 +19,8 @@
 					id = response;
 					$('.ptp-list').append(
 						'<div id="ptp-userid-'+id+'" class="row">'+
-							'<div class="col-sm-6 item name">'+name+'</div>'+
-							'<div class="col-sm-6 item points">'+points+'</div>'+
+							'<div class="col-sm-6 item" data-type="text" data-column="name">'+name+'</div>'+
+							'<div class="col-sm-6 item" data-type="number" data-column="points">'+points+'</div>'+
 						'</div>'
 					);
 					$("#new_user_name").val('');
@@ -31,15 +31,39 @@
 	});
 
 	//edit data from existing item
-	$('.ptp-list .item').on('click', function(){ 
+	$('.ptp-list .item').live('click', function(){ 
 		$('.ptp-editor').remove(); //remove all existing editor windows
-		//create input form
+		var id = parseInt($(this).parent().attr('id').replace( /^\D+/g, ''));
+		var column = $(this).attr('data-column');
 		var type = $(this).attr('data-type');
 		var value = $(this).text();
-		$('.ptp-list').append('<div class="ptp-editor"><input type="'+type+'" value="'+value+'"></div>');
+		$('.ptp-list').append(
+			'<div class="ptp-editor">'+
+				'<input type="'+type+'" value="'+value+'" data-id="'+id+'" data-column="'+column+'">'+
+				'<span class="edit save"><i class="material-icons">done</i></span>'+
+				'<span class="edit cancel"><i class="material-icons">clear</i></span>'+
+				'<span class="edit delete"><i class="material-icons">delete_forever</i></span>'+
+			'</div>'
+		);
 		$('.ptp-editor').css({ top: ($(this).position().top), left: ($(this).position().left) });
 		$('.ptp-editor input').focus().setCursorToTextEnd();
 		//console.log($(this).parent().attr('id'));
+	});
+
+	//add actions to the editor
+	$('.ptp-editor .save').live('click', function(){ 
+		var input = $('.ptp-editor input');
+		var id = input.attr('data-id');
+		var column = input.attr('data-column');
+		var value = input.val(); //name or points
+		$.post(ajaxurl, { 'action': 'update_user', 'id': id, 'column': column, 'value': value }, function(response) { 
+			$('.ptp-editor').remove(); //remove editor field
+			$('#ptp-userid-' + id).find('[data-column="'+column+'"]').text(value);
+			console.log(response);
+		});
+	});
+	$('.ptp-editor .cancel').live('click', function(){ 
+		$('.ptp-editor').remove();
 	});
 
 	//set cursor to the end

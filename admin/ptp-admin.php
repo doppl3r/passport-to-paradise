@@ -52,8 +52,8 @@ class Ptp_Admin {
 								global $wpdb;
 								foreach ( $wpdb->get_results("SELECT * FROM wp_ptp_table ORDER BY points DESC;") as $key => $row) {
 		echo 						'<div id="ptp-userid-' . $row->id . '" class="row">' . 
-										'<div class="col-sm-6 item name" data-type="text">' . $row->name . '</div>' . 
-										'<div class="col-sm-6 item points" data-type="number">' . $row->points . '</div>' . 
+										'<div class="col-sm-6 item" data-type="text" data-column="name">' . $row->name . '</div>' . 
+										'<div class="col-sm-6 item" data-type="number" data-column="points">' . $row->points . '</div>' . 
 									'</div>';
 								}
 		echo '				</div>
@@ -91,11 +91,12 @@ class Ptp_Admin {
 	//update user when called from an ajax action
 	public function update_user(){
 		global $wpdb;
-		$name = strval( $_POST['name'] );
-		$points = intval( $_POST['points'] );
+		$id = intval( $_POST['id'] ); //target specific row
+		$column = strval( $_POST['column'] ); //target specific column
+		$value = strval( $_POST['value'] ); //new value
 		$wpdb->update('wp_ptp_table', //specify table
-		array( 'points' => $points ), //update points
-		array( 'name' => $name )); //where (all matching names)
+			array( $column => $value ), //specify column to update (name or points)
+			array( 'id' => $id )); //where (all values are matching the id)
 		echo "updated";
 		wp_die();
 	}

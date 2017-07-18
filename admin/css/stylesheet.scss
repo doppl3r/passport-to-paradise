@@ -33,6 +33,7 @@ body {
                 width: 100%;
             }
             .ptp-list {
+                $height: 36px; /* preprocessed height */
                 position: relative;
 
                 .ptp-editor {     
@@ -40,12 +41,59 @@ body {
                     width: 50%;
 
                     input {
-                        font-size: 16px;
+                        //font-size: 16px;
                         font-weight: bold;
-                        height: 36px;
-                        line-height: 36px;
+                        height: $height;
+                        line-height: $height;
                         margin: 0;
                         padding: 0 6px;
+                        position: relative;
+                    }
+                    .edit { 
+                        $size: 24px;
+                        border-radius: 50%;
+                        background-color: #ffffff;
+                        box-shadow: 0 2px 2px rgba(0,0,0,0.05);
+                        cursor: pointer;
+                        height: $size;
+                        line-height: $size;
+                        position: absolute;
+                        text-align: center;
+                        top: ($height) - ($size / 2);
+                        width: $size;
+
+                        &.save {
+                            $color: #25db61;
+                            color: $color;
+                            right: ($size * 3) + ($size / 2);
+                            &:hover {
+                                color: #ffffff;
+                                background-color: $color;
+                            }
+                        }
+                        &.cancel {
+                            $color: #f4b725;
+                            color: $color;
+                            right: ($size * 2) + ($size / 4);
+                            &:hover {
+                                color: #ffffff;
+                                background-color: $color;
+                            }
+                        }
+                        &.delete {
+                            $color: #f4254c;
+                            color: $color;
+                            right: $size;
+                            &:hover {
+                                color: #ffffff;
+                                background-color: $color;
+                            }
+                        }
+                        .material-icons { 
+                            font-size: 24px;
+                            line-height: $size;
+                            vertical-align: top;
+                        }
                     }
                 }
                 .row { /* list view styling */
@@ -58,8 +106,8 @@ body {
                     }
                     > [class*="col-"] { 
                         padding: 0 6px; 
-                        height: 36px;
-                        line-height:36px;
+                        height: $height;
+                        line-height:$height;
                     }
                 }
                 &.aside { max-width: 240px; }
