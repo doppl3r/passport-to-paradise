@@ -39,6 +39,7 @@ body {
                     cursor: pointer;
                 }
             }
+            &.aside { max-width: 240px; }
         }
         .row {
             margin-right: 0;
@@ -46,6 +47,18 @@ body {
 
             > [class*="col-"] {
                 padding-left: 7px;
+            }
+        }
+    }
+}
+
+@media(max-width:960px){ 
+    body {
+        background-color: #f1f1f1;
+
+        .ptp-admin-body {
+            .ptp-content {
+                &.aside { max-width: 100%; }
             }
         }
     }
