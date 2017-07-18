@@ -12,10 +12,10 @@
 			if (points.length < 1) points = 0;
 			$.post(ajaxurl, { 'action': 'add_user', 'name': name, 'points': points }, function(response) { 
 				if (response == "added"){
-					$('.ptp-list').prepend(
+					$('.ptp-list').append(
 						'<div class="row">'+
-							'<div class="col-sm-6">'+name+'</div>'+
-							'<div class="col-sm-6">'+points+'</div>'+
+							'<div class="col-sm-6 item">'+name+'</div>'+
+							'<div class="col-sm-6 item">'+points+'</div>'+
 						'</div>'
 					);
 					$("#new_user_name").val('');

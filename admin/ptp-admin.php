@@ -18,19 +18,22 @@ class Ptp_Admin {
 
 	//register scripts
 	public function ptp_admin_register_scripts() {
-		wp_register_style('bootstrap.min.css', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css');
-		wp_register_style('ptp.css', plugin_dir_url(__FILE__) . 'css/stylesheet.css');
-		
-		wp_enqueue_style('bootstrap.min.css');
-		wp_enqueue_style('ptp.css');
+		//only register and enqueue files on the plugin admin page
+		if (strpos($_SERVER["REQUEST_URI"], "passport-to-paradise") !== false){
+			wp_register_style('bootstrap.min.css', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css');
+			wp_register_style('ptp.css', plugin_dir_url(__FILE__) . 'css/stylesheet.css');
+			
+			wp_enqueue_style('bootstrap.min.css');
+			wp_enqueue_style('ptp.css');
 
-		wp_register_script('tether.min.js', plugin_dir_url(__FILE__) . 'js/tether.min.js');
-		wp_register_script('bootstrap.min.js', plugin_dir_url(__FILE__) . 'js/bootstrap.min.js');
-		wp_register_script('ptp.js', plugin_dir_url(__FILE__) . 'js/ptp.js');
-		
-		wp_enqueue_script('tether.min.js');
-		wp_enqueue_script('bootstrap.min.js');
-		wp_enqueue_script('ptp.js');
+			wp_register_script('tether.min.js', plugin_dir_url(__FILE__) . 'js/tether.min.js');
+			wp_register_script('bootstrap.min.js', plugin_dir_url(__FILE__) . 'js/bootstrap.min.js');
+			wp_register_script('ptp.js', plugin_dir_url(__FILE__) . 'js/ptp.js');
+			
+			wp_enqueue_script('tether.min.js');
+			wp_enqueue_script('bootstrap.min.js');
+			wp_enqueue_script('ptp.js');
+		};
 	}
 
 	// load HTML from database
@@ -49,8 +52,8 @@ class Ptp_Admin {
 								global $wpdb;
 								foreach ( $wpdb->get_results("SELECT * FROM wp_ptp_table;") as $key => $row) {
 		echo 						'<div class="row">' . 
-										'<div class="col-sm-6">' . $row->name . '</div>' . 
-										'<div class="col-sm-6">' . $row->points . '</div>' . 
+										'<div class="col-sm-6 item">' . $row->name . '</div>' . 
+										'<div class="col-sm-6 item">' . $row->points . '</div>' . 
 									'</div>';
 								}
 		echo '				</div>

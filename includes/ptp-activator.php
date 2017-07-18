@@ -9,7 +9,7 @@ class Ptp_Activator {
 		//create name and types columns for the first time
 		$sql = "CREATE TABLE $table_name ( 
 			name VARCHAR(50) NOT NULL, 
-			points SMALLINT(5) NOT NULL 
+			points INT(5) NOT NULL 
 		) $charset_collate;";
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
@@ -18,7 +18,7 @@ class Ptp_Activator {
 		if ( version_compare( $version, '2.0' ) < 0 ) {
 			$sql = "CREATE TABLE $table_name ( 
 				name VARCHAR(50) NOT NULL, 
-				points SMALLINT(5) NOT NULL,
+				points INT(5) NOT NULL,
 			) $charset_collate;";
 			dbDelta( $sql );
 			update_option( 'my_plugin_version', '2.0' );

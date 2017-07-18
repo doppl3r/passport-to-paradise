@@ -33,12 +33,10 @@ body {
                 width: 100%;
             }
 
-            .row {
-                [class*="col-"]{
-                    &:hover {
-                        background-color: #f1f1f1;
-                        cursor: pointer;
-                    }
+            .item {
+                &:hover {
+                    background-color: #f1f1f1;
+                    cursor: pointer;
                 }
             }
         }
