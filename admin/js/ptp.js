@@ -1,7 +1,7 @@
 (function( $ ) {
 	'use strict';
 	$(document).ready(function(){
-		
+
 	});
 
 	//add new user
@@ -45,6 +45,7 @@
 		);
 		$('.ptp-editor').css({ top: ($(this).position().top), left: ($(this).position().left) });
 		$('.ptp-editor input').focus().setCursorToTextEnd();
+		$('.ptp-editor input').enterKey(function(){ $('.ptp-editor .save').click(); });
 	});
 
 	//save edit changes
@@ -74,11 +75,24 @@
 		});
 	});
 
+	//remove editor if window resized
+	$(window).on('resize',function(){ $('.ptp-editor').remove(); });
+
 	//set cursor to the end
 	$.fn.setCursorToTextEnd = function() {
         var $initialVal = this.val();
         this.val($initialVal);
-    };
+	};
+	
+	//bind enter key
+	$.fn.enterKey = function (fnc) {
+		return this.each(function () {
+			$(this).keypress(function (ev) {
+				var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+				if (keycode == '13') { fnc.call(this, ev); }
+			})
+		})
+	}
 })( jQuery );
 
 function victory(){ alert('victory'); }
