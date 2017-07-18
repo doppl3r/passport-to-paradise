@@ -1,9 +1,7 @@
 (function( $ ) {
 	'use strict';
 	$(document).ready(function(){
-		//$.post(ajaxurl, { 'action': 'add_user', 'name': 'Jake', 'points': 9013 }, function(response) { });
-		//$.post(ajaxurl, { 'action': 'update_user', 'name': 'Jake', 'points': 9017 }, function(response) { });
-		//$.post(ajaxurl, { 'action': 'delete_user', 'name': 'Jake' }, function(response) { });
+		
 	});
 
 	//add new user
@@ -47,10 +45,9 @@
 		);
 		$('.ptp-editor').css({ top: ($(this).position().top), left: ($(this).position().left) });
 		$('.ptp-editor input').focus().setCursorToTextEnd();
-		//console.log($(this).parent().attr('id'));
 	});
 
-	//add actions to the editor
+	//save edit changes
 	$('.ptp-editor .save').live('click', function(){ 
 		var input = $('.ptp-editor input');
 		var id = input.attr('data-id');
@@ -59,11 +56,22 @@
 		$.post(ajaxurl, { 'action': 'update_user', 'id': id, 'column': column, 'value': value }, function(response) { 
 			$('.ptp-editor').remove(); //remove editor field
 			$('#ptp-userid-' + id).find('[data-column="'+column+'"]').text(value);
-			console.log(response);
 		});
 	});
+
+	//cancel edit changes
 	$('.ptp-editor .cancel').live('click', function(){ 
 		$('.ptp-editor').remove();
+	});
+
+	//add delete action to the editor
+	$('.ptp-editor .delete').live('click', function(){ 
+		var input = $('.ptp-editor input');
+		var id = input.attr('data-id');
+		$.post(ajaxurl, { 'action': 'delete_user', 'id': id }, function(response) { 
+			$('.ptp-editor').remove(); //remove editor field
+			$('#ptp-userid-' + id).remove();
+		});
 	});
 
 	//set cursor to the end

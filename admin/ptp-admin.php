@@ -104,9 +104,9 @@ class Ptp_Admin {
 	//delete user when called from an ajax action
 	public function delete_user(){
 		global $wpdb;
-		$name = strval( $_POST['name'] );
+		$id = strval( $_POST['id'] );
 		$wpdb->delete('wp_ptp_table', //specify table
-		array( 'name' => $name )); //where (all matching names)
+		array( 'id' => $id )); //where (all matching names)
 		echo "deleted";
 		wp_die();
 	}
