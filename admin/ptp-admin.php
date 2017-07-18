@@ -52,8 +52,8 @@ class Ptp_Admin {
 								global $wpdb;
 								foreach ( $wpdb->get_results("SELECT * FROM wp_ptp_table ORDER BY points DESC;") as $key => $row) {
 		echo 						'<div id="ptp-userid-' . $row->id . '" class="row">' . 
-										'<div class="col-sm-6 item name">' . $row->name . '</div>' . 
-										'<div class="col-sm-6 item points">' . $row->points . '</div>' . 
+										'<div class="col-sm-6 item name" data-type="text">' . $row->name . '</div>' . 
+										'<div class="col-sm-6 item points" data-type="number">' . $row->points . '</div>' . 
 									'</div>';
 								}
 		echo '				</div>
@@ -64,7 +64,7 @@ class Ptp_Admin {
 							<h3>Add User</h3>
 							<form method="post" target="hiddenFrame">
 								<input id="new_user_name" type="text" placeholder="Full Name" required>
-								<input id="new_user_points" type="number" placeholder="Points">
+								<input id="new_user_points" type="number" placeholder="Points" max="2147483647">
 								<button id="add_user" class="btn btn-primary"><i class="material-icons">person_add</i></button>
 							</form>
 							<iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>

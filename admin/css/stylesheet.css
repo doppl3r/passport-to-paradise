@@ -26,20 +26,41 @@ body {
         cursor: pointer;
         height: 48px;
         width: 100%; }
-      body .ptp-admin-body .ptp-content .item:hover {
-        background-color: #f1f1f1;
-        cursor: pointer; }
-      body .ptp-admin-body .ptp-content.aside {
-        max-width: 240px; }
+      body .ptp-admin-body .ptp-content .ptp-list {
+        position: relative; }
+        body .ptp-admin-body .ptp-content .ptp-list .ptp-editor {
+          position: absolute;
+          width: 50%; }
+          body .ptp-admin-body .ptp-content .ptp-list .ptp-editor input {
+            font-size: 16px;
+            font-weight: bold;
+            height: 36px;
+            line-height: 36px;
+            margin: 0;
+            padding: 0 6px; }
+        body .ptp-admin-body .ptp-content .ptp-list .row {
+          /* list view styling */
+          border-bottom: 1px dashed #f1f1f1; }
+          body .ptp-admin-body .ptp-content .ptp-list .row .item:hover {
+            background-color: #f1f1f1;
+            cursor: pointer; }
+          body .ptp-admin-body .ptp-content .ptp-list .row > [class*="col-"] {
+            padding: 0 6px;
+            height: 36px;
+            line-height: 36px; }
+        body .ptp-admin-body .ptp-content .ptp-list.aside {
+          max-width: 240px; }
     body .ptp-admin-body .row {
       margin-right: 0;
       margin-left: 0; }
       body .ptp-admin-body .row > [class*="col-"] {
         padding-left: 7px; }
 
-@media (max-width: 960px) {
+@media (max-width: 577px) {
   body {
     background-color: #f1f1f1; }
+    body .ptp-admin-body .ptp-content .ptp-list .ptp-editor {
+      width: 100%; }
     body .ptp-admin-body .ptp-content.aside {
       max-width: 100%; } }
 
