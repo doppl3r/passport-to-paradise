@@ -3,6 +3,9 @@ class Ptp_Admin {
 	public function add_actions_to_menu(){
 		add_action( 'admin_menu', array( $this, 'add_admin_menu_page' ) ); /* Add admin menu and page */
 		add_action( 'admin_head', array( $this, 'ptp_admin_register_scripts' ) ); /* Add custom css sheet to this page */
+		add_action( 'wp_ajax_add_user', array( $this, 'add_user' ) );
+		add_action( 'wp_ajax_update_user', array( $this, 'update_user' ) );
+		add_action( 'wp_ajax_delete_user', array( $this, 'delete_user' ) );
 	}
 	public function add_admin_menu_page() {
 		add_menu_page('Passport to Paradise', 'Passport', 'manage_options', 'passport-to-paradise', array( $this, 'ptp_render' ), 'dashicons-palmtree');
@@ -20,9 +23,7 @@ class Ptp_Admin {
 		wp_enqueue_script('bootstrap.min.js');
 		wp_enqueue_script('ptp.js');
 	}
-	public function ptp_render(){ 
-		//$this->add_new_user("Jake",9000);
-		//$this->update_user_points("Jake",9005);
+	public function ptp_render(){
 		echo '
 			<div class="ptp-admin-body">
 				<h1>Passport to Paradise</h1>
@@ -41,21 +42,28 @@ class Ptp_Admin {
 			</div>
 		';
 	}
-	public function add_new_user($name, $points = 0){
-		global $wpdb;
+	public function add_user() {
+		global $wpdb; // this is how you get access to the database
+		$name = strval( $_POST['name'] );
+		$points = intval( $_POST['points'] );
 		$wpdb->insert('wp_ptp_table', array(
 			'name' => $name,
 			'points' => $points,
 		));
+		wp_die();
 	}
-	public function update_user_points($name, $points){
+	public function update_user(){
 		global $wpdb;
+		$name = strval( $_POST['name'] );
+		$points = intval( $_POST['points'] );
 		$wpdb->update('wp_ptp_table', //specify table
 		array( 'points' => $points ), //update points
 		array( 'name' => $name )); //where (all matching names)
+		wp_die();
 	}
-	public function delete_user($name){
+	public function delete_user(){
 		global $wpdb;
+		$name = strval( $_POST['name'] );
 		$wpdb->delete('wp_ptp_table', //specify table
 		array( 'name' => $name )); //where (all matching names)
 	}
