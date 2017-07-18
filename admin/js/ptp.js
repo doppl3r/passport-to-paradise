@@ -76,7 +76,7 @@
 	});
 
 	//remove editor if window resized
-	$(window).on('resize',function(){ $('.ptp-editor').remove(); });
+	$(window).on('resize',function(){ if (isMobile() == false) $('.ptp-editor').remove(); });
 
 	//set cursor to the end
 	$.fn.setCursorToTextEnd = function() {
@@ -92,6 +92,11 @@
 				if (keycode == '13') { fnc.call(this, ev); }
 			})
 		})
+	}
+
+	//check if mobile device
+	function isMobile() {
+		return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 	}
 })( jQuery );
 

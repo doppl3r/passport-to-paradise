@@ -95,6 +95,20 @@ body {
     background-color: #f1f1f1; }
     body .ptp-admin-body .ptp-content .ptp-list .ptp-editor {
       width: 100%; }
+      body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit {
+        /* Increase button size for mobile devices */
+        height: 32px;
+        line-height: 32px;
+        top: 20px;
+        width: 32px; }
+        body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.save {
+          right: 112px; }
+        body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.cancel {
+          right: 72px; }
+        body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.delete {
+          right: 32px; }
+        body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit .material-icons {
+          line-height: 32px; }
     body .ptp-admin-body .ptp-content.aside {
       max-width: 100%; } }
 
