@@ -21,7 +21,7 @@
 							'<div class="col-sm-6 item" data-type="number" data-column="points">'+points+'</div>'+
 						'</div>'
 					);
-					$("#new_user_name").val('');
+					$("#new_user_name").val('').focus();
 					$("#new_user_points").val('');
 				}
 			});
