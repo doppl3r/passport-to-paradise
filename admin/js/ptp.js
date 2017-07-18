@@ -18,6 +18,8 @@
 							'<div class="col-sm-6">'+points+'</div>'+
 						'</div>'
 					);
+					$("#new_user_name").val('');
+					$("#new_user_points").val('');
 				}
 			});
 		}

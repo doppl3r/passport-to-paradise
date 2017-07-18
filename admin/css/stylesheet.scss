@@ -23,18 +23,29 @@ body {
                 height: 48px;
                 line-height: 48px;
                 margin-bottom: 12px;
-                max-width: 100%;
+                width: 100%;
                 padding: 0 12px;
+            }
+            button { 
+                border-radius: 0;
+                cursor: pointer;
+                height: 48px;
+                width: 100%;
+            }
+
+            .row {
+                [class*="col-"]{
+                    &:hover {
+                        background-color: #f1f1f1;
+                        cursor: pointer;
+                    }
+                }
             }
         }
         .row {
             margin-right: 0;
             margin-left: 0;
 
-            &:hover {
-                background-color: #f1f1f1;
-                cursor: pointer;
-            }
             > [class*="col-"] {
                 padding-left: 7px;
             }
@@ -70,4 +81,5 @@ body {
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+  vertical-align: bottom;
 }

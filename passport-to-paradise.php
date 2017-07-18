@@ -29,19 +29,35 @@ along with Passport to Paradise. If not, see {License URI}.
 
 //prevent direct access to wordpress files
 if ( ! defined( 'WPINC' ) ) { die; }
-//take action for activation or deactivation of plugins
-function activate_plugin_name() {
+
+//establish database table on activation
+function activate_ptp() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/ptp-activator.php';
 	Ptp_Activator::activate();
 }
-function deactivate_plugin_name() {
+
+//change plugin state when deactivated
+function deactivate_ptp() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/ptp-deactivator.php';
 	Ptp_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+//register the activate and deactivate functions
+register_activation_hook( __FILE__, 'activate_ptp' );
+register_deactivation_hook( __FILE__, 'deactivate_ptp' );
 
+//Add shortcode that returns a specific user's score
+function ptp_shortcode($atts) {
+	global $wpdb;
+	extract(shortcode_atts(array('name' => 'please specify name' ), $atts));
+	foreach( $wpdb->get_results("SELECT * FROM wp_ptp_table;") as $key => $row) {
+		if (strtolower($name) == strtolower($row->name)) $name = $row->points;
+	}
+	return $name;
+}
+add_shortcode('ptp', 'ptp_shortcode');
+
+//add the admin page if user has permission
 if (is_admin()){
     require_once('admin/ptp-admin.php'); 
     $admin_page_var = new Ptp_Admin();

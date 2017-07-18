@@ -19,14 +19,19 @@ body {
         height: 48px;
         line-height: 48px;
         margin-bottom: 12px;
-        max-width: 100%;
+        width: 100%;
         padding: 0 12px; }
+      body .ptp-admin-body .ptp-content button {
+        border-radius: 0;
+        cursor: pointer;
+        height: 48px;
+        width: 100%; }
+      body .ptp-admin-body .ptp-content .row [class*="col-"]:hover {
+        background-color: #f1f1f1;
+        cursor: pointer; }
     body .ptp-admin-body .row {
       margin-right: 0;
       margin-left: 0; }
-      body .ptp-admin-body .row:hover {
-        background-color: #f1f1f1;
-        cursor: pointer; }
       body .ptp-admin-body .row > [class*="col-"] {
         padding-left: 7px; }
 
@@ -54,4 +59,5 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga'; }
+  font-feature-settings: 'liga';
+  vertical-align: bottom; }
