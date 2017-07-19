@@ -31,6 +31,10 @@ body {
                 cursor: pointer;
                 height: 48px;
                 width: 100%;
+
+                &.btn-primary {
+                    background-color: #1290c0;
+                }
             }
             .ptp-list {
                 $height: 36px; /* preprocessed height */
@@ -97,7 +101,7 @@ body {
                     }
                     &:before {
                         animation: sk-scaleout 1.0s infinite ease-in-out;
-                        background-color: #ccc;
+                        background-color: #1290c0;
                         border-radius: 100%;  
                         content: '';
                         display: none;
