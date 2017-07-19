@@ -12,7 +12,9 @@
 		var id = -1; //generated from mysql
 		if (name.length > 0 && points <= 2147483647){ //name must have characters
 			if (points.length < 1) points = 0;
+			$(this).addClass('loading');
 			$.post(ajaxurl, { 'action': 'add_user', 'name': name, 'points': points }, function(response) { 
+				$('#add_user').removeClass('loading');
 				if (parseInt(response) > 0){
 					id = response;
 					$('.ptp-list').append(
