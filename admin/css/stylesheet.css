@@ -32,6 +32,33 @@ body {
         body .ptp-admin-body .ptp-content .ptp-list .ptp-editor {
           position: absolute;
           width: 50%; }
+          body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .loader {
+            animation: sk-scaleout 1.0s infinite ease-in-out;
+            background-color: #ccc;
+            border-radius: 100%;
+            display: none;
+            height: 36px;
+            left: -36px;
+            -webkit-animation: sk-scaleout 0.5s infinite ease-in-out;
+            width: 36px;
+            position: absolute;
+            top: 0; }
+
+@-webkit-keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0; } }
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0; } }
           body .ptp-admin-body .ptp-content .ptp-list .ptp-editor input {
             font-weight: bold;
             height: 36px;
@@ -51,23 +78,23 @@ body {
             top: 24px;
             width: 24px; }
             body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.save {
-              color: #25db61;
+              color: #8ec23c;
               right: 84px; }
               body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.save:hover {
                 color: #ffffff;
-                background-color: #25db61; }
+                background-color: #8ec23c; }
             body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.cancel {
-              color: #f4b725;
+              color: #ffcc59;
               right: 54px; }
               body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.cancel:hover {
                 color: #ffffff;
-                background-color: #f4b725; }
+                background-color: #ffcc59; }
             body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.delete {
-              color: #f4254c;
+              color: #dd464d;
               right: 24px; }
               body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.delete:hover {
                 color: #ffffff;
-                background-color: #f4254c; }
+                background-color: #dd464d; }
             body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit .material-icons {
               font-size: 24px;
               line-height: 24px;

@@ -1,7 +1,7 @@
 (function( $ ) {
 	'use strict';
 	$(document).ready(function(){
-
+		
 	});
 
 	//add new user
@@ -38,6 +38,7 @@
 		$('.ptp-list').append(
 			'<div class="ptp-editor">'+
 				'<input type="'+type+'" value="'+value+'" data-id="'+id+'" data-column="'+column+'">'+
+				'<span class="loader"></span>'+
 				'<span class="edit save"><i class="material-icons">done</i></span>'+
 				'<span class="edit cancel"><i class="material-icons">clear</i></span>'+
 				'<span class="edit delete"><i class="material-icons">delete_forever</i></span>'+
@@ -54,7 +55,9 @@
 		var id = input.attr('data-id');
 		var column = input.attr('data-column');
 		var value = input.val(); //name or points
+		$('.ptp-editor .loader').css({ 'display':'block' }); //show loading symbol
 		$.post(ajaxurl, { 'action': 'update_user', 'id': id, 'column': column, 'value': value }, function(response) { 
+			$('.ptp-editor .loader').css({ 'display':'none' }); //show loading symbol
 			$('.ptp-editor').remove(); //remove editor field
 			$('#ptp-userid-' + id).find('[data-column="'+column+'"]').text(value);
 		});
