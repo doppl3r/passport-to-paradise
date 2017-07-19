@@ -55,9 +55,8 @@
 		var id = input.attr('data-id');
 		var column = input.attr('data-column');
 		var value = input.val(); //name or points
-		$('.ptp-editor .loader').css({ 'display':'block' }); //show loading symbol
+		$('.ptp-editor').addClass('loading'); //show loading symbol
 		$.post(ajaxurl, { 'action': 'update_user', 'id': id, 'column': column, 'value': value }, function(response) { 
-			$('.ptp-editor .loader').css({ 'display':'none' }); //show loading symbol
 			$('.ptp-editor').remove(); //remove editor field
 			$('#ptp-userid-' + id).find('[data-column="'+column+'"]').text(value);
 		});
@@ -72,6 +71,7 @@
 	$('.ptp-editor .delete').live('click', function(){ 
 		var input = $('.ptp-editor input');
 		var id = input.attr('data-id');
+		$('.ptp-editor').addClass('loading'); //show loading symbol
 		$.post(ajaxurl, { 'action': 'delete_user', 'id': id }, function(response) { 
 			$('.ptp-editor').remove(); //remove editor field
 			$('#ptp-userid-' + id).remove();

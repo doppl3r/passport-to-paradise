@@ -40,23 +40,8 @@ body {
                     position: absolute;
                     width: 50%;
 
-                    .loader {
-                        animation: sk-scaleout 1.0s infinite ease-in-out;
-                        background-color: #ccc;
-                        border-radius: 100%;  
-                        display: none;
-                        height: $height;
-                        left: - ($height);
-                        -webkit-animation: sk-scaleout 0.5s infinite ease-in-out;
-                        width: $height;
-                        position: absolute;
-                        top: 0;
-                    }
-                    @-webkit-keyframes sk-scaleout { 0% { -webkit-transform: scale(0) } 100% { -webkit-transform: scale(1.0); opacity: 0; }}
-                    @keyframes sk-scaleout { 0% { -webkit-transform: scale(0); transform: scale(0); } 100% { -webkit-transform: scale(1.0); transform: scale(1.0); opacity: 0; }}
-
                     input {
-                        //font-size: 16px;
+                        color: #666;
                         font-weight: bold;
                         height: $height;
                         line-height: $height;
@@ -109,6 +94,26 @@ body {
                             line-height: $size;
                             vertical-align: top;
                         }
+                    }
+                    &:before {
+                        animation: sk-scaleout 1.0s infinite ease-in-out;
+                        background-color: #ccc;
+                        border-radius: 100%;  
+                        content: '';
+                        display: none;
+                        height: $height;
+                        left: - ($height);
+                        -webkit-animation: sk-scaleout 0.5s infinite ease-in-out;
+                        width: $height;
+                        position: absolute;
+                        top: 0;
+                    }
+                    @-webkit-keyframes sk-scaleout { 0% { -webkit-transform: scale(0) } 100% { -webkit-transform: scale(1.0); opacity: 0; }}
+                    @keyframes sk-scaleout { 0% { -webkit-transform: scale(0); transform: scale(0); } 100% { -webkit-transform: scale(1.0); transform: scale(1.0); opacity: 0; }}
+                    &.loading {
+                        &:before { display: block; }
+                        input { color: #ccc; }
+                        .edit { display: none; }
                     }
                 }
                 .row { /* list view styling */
