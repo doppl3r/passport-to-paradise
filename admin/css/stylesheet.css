@@ -89,33 +89,33 @@ body {
             background-color: #ffffff;
             box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
             cursor: pointer;
-            height: 24px;
-            line-height: 24px;
+            height: 32px;
+            line-height: 32px;
             position: absolute;
             text-align: center;
-            top: 24px;
-            width: 24px; }
+            top: 28px;
+            width: 32px; }
             body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.save {
               color: #8ec23c;
-              right: 84px; }
+              right: 112px; }
               body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.save:hover {
                 color: #ffffff;
                 background-color: #8ec23c; }
             body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.cancel {
               color: #ffcc59;
-              right: 54px; }
+              right: 72px; }
               body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.cancel:hover {
                 color: #ffffff;
                 background-color: #ffcc59; }
             body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.delete {
               color: #dd464d;
-              right: 24px; }
+              right: 32px; }
               body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.delete:hover {
                 color: #ffffff;
                 background-color: #dd464d; }
             body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit .material-icons {
               font-size: 24px;
-              line-height: 24px;
+              line-height: 32px;
               vertical-align: top; }
           body .ptp-admin-body .ptp-content .ptp-list .ptp-editor:before {
             animation: sk-scaleout 0.5s infinite ease-in-out;
@@ -177,20 +177,6 @@ body {
     background-color: #f1f1f1; }
     body .ptp-admin-body .ptp-content .ptp-list .ptp-editor {
       width: 100%; }
-      body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit {
-        /* Increase button size for mobile devices */
-        height: 32px;
-        line-height: 32px;
-        top: 20px;
-        width: 32px; }
-        body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.save {
-          right: 112px; }
-        body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.cancel {
-          right: 72px; }
-        body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit.delete {
-          right: 32px; }
-        body .ptp-admin-body .ptp-content .ptp-list .ptp-editor .edit .material-icons {
-          line-height: 32px; }
     body .ptp-admin-body .ptp-content.aside {
       max-width: 100%; } }
 

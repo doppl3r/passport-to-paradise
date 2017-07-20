@@ -86,7 +86,7 @@ body {
                         position: relative;
                     }
                     .edit { 
-                        $size: 24px;
+                        $size: 32px;
                         border-radius: 50%;
                         background-color: #ffffff;
                         box-shadow: 0 2px 2px rgba(0,0,0,0.05);
@@ -95,7 +95,7 @@ body {
                         line-height: $size;
                         position: absolute;
                         text-align: center;
-                        top: ($height) - ($size / 2);
+                        top: ($height) - ($size * 0.25);
                         width: $size;
 
                         &.save {
@@ -191,23 +191,8 @@ body {
         .ptp-admin-body {
             .ptp-content {
                 .ptp-list {
-                    $height: 36px;
-
                     .ptp-editor { 
-                        width: 100%; 
-
-                        .edit { /* Increase button size for mobile devices */
-                            $size: 32px;
-                            height: $size;
-                            line-height: $size;
-                            top: ($height) - ($size / 2);
-                            width: $size;
-
-                            &.save { right: ($size * 3) + ($size / 2); }
-                            &.cancel { right: ($size * 2) + ($size / 4); }
-                            &.delete { right: $size; }
-                            .material-icons { line-height: $size; }
-                        }
+                        width: 100%;
                     }
                 }
                 &.aside { max-width: 100%; }
