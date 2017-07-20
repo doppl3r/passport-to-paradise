@@ -40,7 +40,14 @@ class Ptp_Admin {
 	public function ptp_render(){
 		echo '
 			<div class="ptp-admin-body">
-				<h1>Passport to Paradise</h1>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="ptp-content">
+							<h1>Passport to Paradise</h1>
+							<p>Track team points by adding or editing the table below. Use the following custom shortcode to display user points throughout the website: <em>[ptp name="John Doe"]</em></p>
+						</div>
+					</div>
+				</div>
 				<div class="row">
 					<div class="col-sm-8">
 						<div class="ptp-content">
