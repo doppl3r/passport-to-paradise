@@ -23,6 +23,8 @@
 							'<div class="col-sm-6 item" data-type="number" data-column="points">'+points+'</div>'+
 						'</div>'
 					);
+					//add goal icon class
+					if ((name.toLowerCase()).indexOf('#goal') !== -1) $('#ptp-userid-'+id).find('[data-column="name"]').addClass("goal");
 					$("#new_user_name").val('').focus();
 					$("#new_user_points").val('');
 				}
@@ -61,6 +63,11 @@
 		$.post(ajaxurl, { 'action': 'update_user', 'id': id, 'column': column, 'value': value }, function(response) { 
 			$('.ptp-editor').remove(); //remove editor field
 			$('#ptp-userid-' + id).find('[data-column="'+column+'"]').text(value);
+			//add or remove goal icon class
+			if (column == "name"){
+				if ((value.toLowerCase()).indexOf('#goal') !== -1) $('#ptp-userid-'+id).find('[data-column="name"]').addClass("goal");
+				else $('#ptp-userid-'+id).find('[data-column="name"]').removeClass("goal");
+			}
 		});
 	});
 

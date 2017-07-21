@@ -58,8 +58,9 @@ class Ptp_Admin {
 								</div>';
 								global $wpdb;
 								foreach ( $wpdb->get_results("SELECT * FROM wp_ptp_table ORDER BY points DESC;") as $key => $row) {
+									$has_goal = (strpos(strtolower($row->name), '#goal') !== false) ? "goal" : "";
 		echo 						'<div id="ptp-userid-' . $row->id . '" class="row">' . 
-										'<div class="col-sm-6 item" data-type="text" data-column="name">' . $row->name . '</div>' . 
+										'<div class="col-sm-6 item ' . $has_goal . '" data-type="text" data-column="name">' . $row->name . '</div>' .
 										'<div class="col-sm-6 item" data-type="number" data-column="points">' . $row->points . '</div>' . 
 									'</div>';
 								}
@@ -68,7 +69,8 @@ class Ptp_Admin {
 					</div>
 					<div class="col-sm-4">
 						<div class="ptp-content aside">
-							<h3>Add User</h3>
+							<h3>Add a name</h3>
+							<p>To add a goal, be sure to include <em>#goal</em> in the name</p>
 							<form method="post" target="hiddenFrame">
 								<input id="new_user_name" type="text" placeholder="Full Name" required>
 								<input id="new_user_points" type="number" placeholder="Points" max="2147483647">

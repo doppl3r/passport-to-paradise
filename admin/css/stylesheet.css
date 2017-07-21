@@ -9,13 +9,17 @@ body {
       margin: 0 0 22px;
       padding: 32px; }
       body .ptp-admin-body .ptp-content h1 {
-        color: #333; }
+        color: #333;
+        margin-bottom: 12px; }
       body .ptp-admin-body .ptp-content h3 {
         color: #333;
-        margin-bottom: 24px; }
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 36px;
+        margin-bottom: 0; }
       body .ptp-admin-body .ptp-content p {
         color: #333;
-        margin-bottom: 0px; }
+        margin-bottom: 10px; }
       body .ptp-admin-body .ptp-content input[type="text"],
       body .ptp-admin-body .ptp-content input[type="number"] {
         background-color: #f1f1f1;
@@ -156,9 +160,21 @@ body {
         body .ptp-admin-body .ptp-content .ptp-list .row {
           /* list view styling */
           border-bottom: 1px dashed #f1f1f1; }
-          body .ptp-admin-body .ptp-content .ptp-list .row .item:hover {
-            background-color: #f1f1f1;
-            cursor: pointer; }
+          body .ptp-admin-body .ptp-content .ptp-list .row .item {
+            width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; }
+            body .ptp-admin-body .ptp-content .ptp-list .row .item:hover {
+              background-color: #f1f1f1;
+              cursor: pointer; }
+            body .ptp-admin-body .ptp-content .ptp-list .row .item.goal:before {
+              color: #1290c0;
+              font-family: "Material Icons";
+              content: "directions_run";
+              font-size: 24px;
+              top: 0px;
+              vertical-align: top; }
           body .ptp-admin-body .ptp-content .ptp-list .row > [class*="col-"] {
             color: #333;
             padding: 0 6px;
