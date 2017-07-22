@@ -12,23 +12,25 @@
 		var id = -1; //generated from mysql
 		if (name.length > 0 && points <= 2147483647){ //name must have characters
 			if (points.length < 1) points = 0;
-			$(this).addClass('loading');
-			$.post(ajaxurl, { 'action': 'add_user', 'name': name, 'points': points }, function(response) { 
-				$('#add_user').removeClass('loading');
-				if (parseInt(response) > 0){
-					id = response;
-					$('.ptp-list').append(
-						'<div id="ptp-userid-'+id+'" class="row">'+
-							'<div class="col-sm-6 item" data-type="text" data-column="name">'+name+'</div>'+
-							'<div class="col-sm-6 item" data-type="number" data-column="points">'+points+'</div>'+
-						'</div>'
-					);
-					//add goal icon class
-					if ((name.toLowerCase()).indexOf('#goal') !== -1) $('#ptp-userid-'+id).find('[data-column="name"]').addClass("goal");
-					$("#new_user_name").val('').focus();
-					$("#new_user_points").val('');
-				}
-			});
+			if ($(this).hasClass('loading') == false){
+				$(this).addClass('loading');
+				$.post(ajaxurl, { 'action': 'add_user', 'name': name, 'points': points }, function(response) { 
+					$('#add_user').removeClass('loading');
+					if (parseInt(response) > 0){
+						id = response;
+						$('.ptp-list').append(
+							'<div id="ptp-userid-'+id+'" class="row">'+
+								'<div class="col-sm-6 item" data-type="text" data-column="name">'+name+'</div>'+
+								'<div class="col-sm-6 item" data-type="number" data-column="points">'+points+'</div>'+
+							'</div>'
+						);
+						//add goal icon class
+						if ((name.toLowerCase()).indexOf('#goal') !== -1) $('#ptp-userid-'+id).find('[data-column="name"]').addClass("goal");
+						$("#new_user_name").val('').focus();
+						$("#new_user_points").val('');
+					}
+				});
+			}
 		}
 	});
 
