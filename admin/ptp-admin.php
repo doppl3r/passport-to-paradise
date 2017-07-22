@@ -44,7 +44,7 @@ class Ptp_Admin {
 					<div class="col-sm-12">
 						<div class="ptp-content">
 							<h1>Passport to Paradise</h1>
-							<p>Track team points by adding or editing the table below. Use the following custom shortcode to display user points throughout the website: <em>[ptp name="John Doe"]</em></p>
+							<p>Track team points by adding or editing the table below.</p>
 						</div>
 					</div>
 				</div>
@@ -69,14 +69,19 @@ class Ptp_Admin {
 					</div>
 					<div class="col-sm-4">
 						<div class="ptp-content aside">
-							<h3>Add a name</h3>
-							<p>To add a goal, be sure to include <em>#goal</em> in the name</p>
+							<h3><i class="material-icons">person_add</i> New</h3>
+							<p>Add a new name below to populate the table.</p>
 							<form method="post" target="hiddenFrame">
-								<input id="new_user_name" type="text" placeholder="Full Name" required>
-								<input id="new_user_points" type="number" placeholder="Points" max="2147483647">
+								<input id="new_user_name" type="text" placeholder="Name" required>
+								<input id="new_user_points" type="number" placeholder="Points" max="2147483647" hidden>
 								<button id="add_user" class="btn btn-primary"><i class="material-icons">person_add</i></button>
 							</form>
 							<iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+						</div>
+						<div class="ptp-content aside">
+							<h3><i class="material-icons">settings</i> Settings</h3>
+							<p>To set a goal, be sure to include <em>#goal</em> in the name</p>
+							<p>Use the following custom shortcode to display user points throughout the website: <em>[ptp name="John Doe"]</em></p>
 						</div>
 					</div>
 				</div>

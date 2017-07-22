@@ -171,8 +171,9 @@ body {
             body .ptp-admin-body .ptp-content .ptp-list .row .item.goal:before {
               color: #1290c0;
               font-family: "Material Icons";
-              content: "directions_run";
+              content: "local_activity";
               font-size: 24px;
+              margin-right: 4px;
               top: 0px;
               vertical-align: top; }
           body .ptp-admin-body .ptp-content .ptp-list .row > [class*="col-"] {
@@ -221,4 +222,4 @@ body {
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
-  vertical-align: bottom; }
+  vertical-align: middle; }
