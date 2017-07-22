@@ -3,7 +3,7 @@
 Plugin Name: Passport to Paradise
 Plugin URI: https://wordpress.org/plugins/passport-to-paradise
 Description: Passport to Paradise is designed to improve sale incentive by creating rewarding goals for your team. Simply add users and apply points according to performance.
-Version: 0.2
+Version: 0.2.1
 Author: Jacob DeBenedetto
 Author URI: http://doppl3r.com
 License: GPL2

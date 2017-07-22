@@ -80,8 +80,8 @@ class Ptp_Admin {
 						</div>
 						<div class="ptp-content aside">
 							<h3><i class="material-icons">settings</i> Settings</h3>
-							<p>To set a goal, be sure to include <em>#goal</em> in the name</p>
-							<p>Use the following custom shortcode to display user points throughout the website: <em>[ptp name="John Doe"]</em></p>
+							<p>To set a goal, be sure to include <strong><em>#goal</em></strong> in the name</p>
+							<p>Use the following custom shortcode to display user points throughout the website:<br><strong><em>[ptp name="John Doe"]</em></strong></p>
 						</div>
 					</div>
 				</div>
