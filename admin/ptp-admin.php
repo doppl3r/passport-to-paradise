@@ -58,7 +58,7 @@ class Ptp_Admin {
 								</div>';
 								global $wpdb;
 								foreach ( $wpdb->get_results("SELECT * FROM wp_ptp_table ORDER BY points DESC;") as $key => $row) {
-									$has_goal = (strpos(strtolower($row->name), '#goal') !== false) ? "goal" : "";
+									$has_goal = (strpos(strtolower($row->name), '#') !== false) ? "goal" : "";
 		echo 						'<div id="ptp-userid-' . $row->id . '" class="row">' . 
 										'<div class="col-sm-6 item ' . $has_goal . '" data-type="text" data-column="name">' . $row->name . '</div>' .
 										'<div class="col-sm-6 item" data-type="number" data-column="points">' . $row->points . '</div>' . 
@@ -80,7 +80,7 @@ class Ptp_Admin {
 						</div>
 						<div class="ptp-content aside">
 							<h3><i class="material-icons">settings</i> Settings</h3>
-							<p>To set a goal, be sure to include <strong><em>#goal</em></strong> in the name</p>
+							<p>To set a goal, add a hashtag character <strong><em>"#"</em></strong> with the name.</p>
 							<p>Use the following custom shortcode to display user points throughout the website:<br><strong><em>[ptp name="John Doe"]</em></strong></p>
 						</div>
 					</div>
