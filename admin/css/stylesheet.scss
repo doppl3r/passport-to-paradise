@@ -13,14 +13,18 @@ body {
 
             h1 {
                 color: #333;
+                margin-bottom: 12px;
             }
             h3 {
                 color: #333;
-                margin-bottom: 24px;
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 36px;
+                margin-bottom: 0;
             }
             p { 
                 color: #333; 
-                margin-bottom: 0px;
+                margin-bottom: 10px;
             }
             input[type="text"],
             input[type="number"] {  
@@ -157,10 +161,24 @@ body {
                 .row { /* list view styling */
                     border-bottom: 1px dashed #f1f1f1;
                     .item {
-                        
+                        width: 250px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
                         &:hover {
                             background-color: #f1f1f1;
                             cursor: pointer;
+                        }
+                        &.goal {
+                            &:before { 
+                                color: #1290c0;
+                                font-family: "Material Icons";
+                                content: "directions_run";
+                                font-size: 24px;
+                                top: 0px;
+                                vertical-align: top;
+                            }
                         }
                     }
                     > [class*="col-"] { 
@@ -170,7 +188,9 @@ body {
                         line-height:$height;
                     }
                 }
-                &.aside { max-width: 240px; }
+                &.aside { 
+                    max-width: 240px; 
+                }
             }
         }
         .row {

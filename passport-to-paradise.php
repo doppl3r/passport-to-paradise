@@ -1,13 +1,9 @@
 <?php
-/**
- * @package Passport_To_Paradise
- * @version 0.1
- */
 /*
 Plugin Name: Passport to Paradise
 Plugin URI: https://wordpress.org/plugins/passport-to-paradise
-Description: This plugin allows users to quickly view their Passport to Paradise reward points. Special users are able to edit a full list of rewards.
-Version: 0.1
+Description: Passport to Paradise is designed to improve sale incentive by creating rewarding goals for your team. Simply add users and apply points according to performance.
+Version: 0.2
 Author: Jacob DeBenedetto
 Author URI: http://doppl3r.com
 License: GPL2
